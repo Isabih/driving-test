@@ -1,0 +1,83 @@
+{
+  "global": {
+    "stream_base_url": "http://localhost:8889",
+    "player_protocol": "webrtc_hls",
+    "notes": "Replace placeholder stream URLs and RTSP URLs with your actual MediaMTX/NVR/VMS or camera values."
+  },
+  "stages": {
+    "figure_8": {
+      "label": "Kunyura mu Munani (8-Course)",
+      "activation_mode": "exclusive",
+      "cameras": [
+        {
+          "camera_id": "cam_s1_overhead",
+          "name": "Stage 1 Overhead",
+          "role": "overhead",
+          "position": "pole_center",
+          "viewer_url": "http://localhost:8889/stage1_overhead",
+          "stream_name": "stage1_overhead",
+          "rtsp_url": "rtsp://USERNAME:PASSWORD@192.168.10.101:554/cam/realmonitor?channel=1&subtype=0",
+          "enabled": true
+        },
+        {
+          "camera_id": "cam_s1_side_a",
+          "name": "Stage 1 Side",
+          "role": "side",
+          "position": "entry_diagonal",
+          "viewer_url": "http://localhost:8889/stage1_side_a",
+          "stream_name": "stage1_side_a",
+          "rtsp_url": "rtsp://USERNAME:PASSWORD@192.168.10.102:554/cam/realmonitor?channel=1&subtype=0",
+          "enabled": true
+        }
+      ]
+    },
+    "zigzag": {
+      "label": "Guhunga Inzitizi (Zigzag)",
+      "activation_mode": "exclusive",
+      "cameras": [
+        {
+          "camera_id": "cam_s2_main",
+          "name": "Stage 2 Main",
+          "role": "diagonal",
+          "position": "mid_elevated",
+          "viewer_url": "http://localhost:8889/stage2_main",
+          "stream_name": "stage2_main",
+          "rtsp_url": "rtsp://USERNAME:PASSWORD@192.168.10.103:554/cam/realmonitor?channel=1&subtype=0",
+          "enabled": true
+        }
+      ]
+    },
+    "narrow": {
+      "label": "Kunyura mu Kayira Gafunganye (Narrow)",
+      "activation_mode": "exclusive",
+      "cameras": [
+        {
+          "camera_id": "cam_s3_main",
+          "name": "Stage 3 Main",
+          "role": "overhead",
+          "position": "mid_overhead",
+          "viewer_url": "http://localhost:8889/stage3_main",
+          "stream_name": "stage3_main",
+          "rtsp_url": "rtsp://USERNAME:PASSWORD@192.168.10.104:554/cam/realmonitor?channel=1&subtype=0",
+          "enabled": true
+        }
+      ]
+    },
+    "emergency_stop": {
+      "label": "Guhagarara Bitunguranye (Emergency Stop)",
+      "activation_mode": "exclusive",
+      "cameras": [
+        {
+          "camera_id": "cam_s4_main",
+          "name": "Stage 4 Main",
+          "role": "long_side",
+          "position": "runway_side",
+          "viewer_url": "http://localhost:8889/stage4_main",
+          "stream_name": "stage4_main",
+          "rtsp_url": "rtsp://USERNAME:PASSWORD@192.168.10.105:554/cam/realmonitor?channel=1&subtype=0",
+          "enabled": true
+        }
+      ]
+    }
+  }
+}

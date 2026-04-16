@@ -1,0 +1,71 @@
+Build a production-ready Next.js + TypeScript + Tailwind + shadcn/ui frontend for "APAFORME Smart Riding Exam System".
+
+Main roles:
+- admin
+- operator
+
+Main live monitor requirements:
+- one bike active at a time
+- one exam active at a time
+- only one stage active at a time
+- when stage 1 finishes, stage 2 becomes active automatically
+- dashboard must switch the live camera area based on the active stage
+- each stage view must show all cameras assigned to that stage
+- show speed live for the active exam and active stage
+- show stage summary cards for figure_8, zigzag, narrow, emergency_stop
+- highlight current stage
+- show event feed and evidence thumbnails
+- show connection badges:
+  - Backend MQTT = server -> broker
+  - Device MQTT = ESP32 -> broker
+  - Wi-Fi = ESP32 -> Wi-Fi access point
+
+Pages:
+- Login
+- Dashboard
+- Live Monitor
+- Riders
+- Bikes & Devices
+- Payments
+- Exams
+- Reports
+- Evidence Review
+- Records Search
+- Firmware Management
+- Settings
+- Users
+
+Live Monitor page layout:
+- left panel: running exam selector + stage stepper
+- center panel: speed gauge + active stage metrics + current score + penalties
+- right panel: active stage live cameras
+- bottom right: live feedback/errors + evidence thumbnails
+- top badges: Backend MQTT / Device MQTT / Wi-Fi / battery / signal / firmware
+
+Important data integrations:
+- GET /dashboard/summary
+- GET /dashboard/running-exams
+- GET /live/exams
+- GET /live/exams/{exam_id}
+- GET /live/exams/{exam_id}/stage-view
+- GET /live/exams/{exam_id}/events
+- GET /live/exams/{exam_id}/evidence
+- GET /cameras/stages
+- GET /cameras/stages/{stage_key}
+- GET /system/status
+- GET /system/connection-meaning
+- websocket /ws
+
+For active stage camera display:
+- use `viewer_url` from the backend camera payload
+- when stage changes, replace the visible camera grid with the new stage camera set
+- stage 1 normally has 2 cameras
+- stages 2, 3, and 4 normally have 1 camera each
+
+Design style:
+- premium dark control-room UI
+- clean card layout
+- large gauge for speed
+- crisp status badges
+- visible stage progress
+- responsive but optimized for desktop operation

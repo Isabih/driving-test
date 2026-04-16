@@ -1,0 +1,15 @@
+logLevel: info
+webrtc: yes
+hls: yes
+rtsp: yes
+paths:
+  stage1_overhead:
+    source: rtsp://USERNAME:PASSWORD@192.168.10.101:554/cam/realmonitor?channel=1&subtype=0
+  stage1_side_a:
+    source: rtsp://USERNAME:PASSWORD@192.168.10.102:554/cam/realmonitor?channel=1&subtype=0
+  stage2_main:
+    source: rtsp://USERNAME:PASSWORD@192.168.10.103:554/cam/realmonitor?channel=1&subtype=0
+  stage3_main:
+    source: rtsp://USERNAME:PASSWORD@192.168.10.104:554/cam/realmonitor?channel=1&subtype=0
+  stage4_main:
+    source: rtsp://USERNAME:PASSWORD@192.168.10.105:554/cam/realmonitor?channel=1&subtype=0

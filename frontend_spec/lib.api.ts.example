@@ -1,0 +1,30 @@
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+});
+
+api.interceptors.request.use((config) => {
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("auth_token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+  return config;
+});
+
+export const getLiveStageView = async (examId: number) => {
+  const { data } = await api.get(`/live/exams/${examId}/stage-view`);
+  return data;
+};
+
+export const getSystemConnectionMeaning = async () => {
+  const { data } = await api.get(`/system/connection-meaning`);
+  return data;
+};
+
+export const getStageCameras = async (stageKey: string) => {
+  const { data } = await api.get(`/cameras/stages/${stageKey}`);
+  return data;
+};
